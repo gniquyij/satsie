@@ -2,9 +2,9 @@
 
 ## what is SA TSIE
 
-a tool to manage your subscriptions.
+a tool to check for your subscription updates.
 
-SA TSIE is the pronounciation of "飒尖" in Shanghainese, which means sharp. Wish it sharp enough to figure out the change.
+SA TSIE is the pronounciation of "飒尖" in Shanghainese, which means sharp.
 
 ## why not other RSS tools in the market
 
@@ -25,7 +25,7 @@ $ python utils.py sketch
 
 ```
 $ python utils.py new --url <subscription>   # to add a new subscription
-$ python utils.py arenew --url <subscription>   # to check if any updates on a specific subsciption
+$ python utils.py arenew --url <subscription>   # to check if any updates on a specific subscription
 ```
 
 ## TODO
