@@ -4,7 +4,7 @@
 
 a tool to manage your subscriptions.
 
-SA TSIE is the pronounciation of "萨尖" in Shanghainese, which means sharp. Wish it sharp enough to figure out the change.
+SA TSIE is the pronounciation of "飒尖" in Shanghainese, which means sharp. Wish it sharp enough to figure out the change.
 
 ## why not other RSS tools in the market
 
