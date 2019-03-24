@@ -33,5 +33,15 @@ def arenew(url):
     s.update()
 
 
+@cli.command(help='check if any updates on all the subscriptions')
+def renew():
+    with open(settings.SUBSCRIPTIONS_FILE) as input:
+        data = json.load(input)
+    urls = data['subscriptions'].keys()
+    for url in urls:
+        s = subscription.Subscription(url)
+        s.update()
+
+
 if __name__ == '__main__':
     cli()
