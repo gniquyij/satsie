@@ -1,10 +1,10 @@
-# sa tsie
+# satsie
 
-## what is SA TSIE
+## what is satsie
 
 a tool to check for your subscription updates.
 
-SA TSIE is the pronounciation of "飒尖" in Shanghainese, which means sharp.
+satsie is the pronounciation of '飒(sa) 尖(tsie)' in Shanghainese, which means sharp.
 
 ## why not other RSS tools in the market
 
@@ -31,7 +31,6 @@ $ python utils.py renew   # to check if any updates on all the subscriptions
 
 ## TODO
 
-- add unittest
 - add log
 
 ## author

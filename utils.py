@@ -11,12 +11,16 @@ def cli():
     pass
 
 
+def sketch_meta(name, db=settings.SUBSCRIPTIONS_FILE):
+    data = {}
+    data[name] = {}
+    with open(db, 'w') as output:
+        json.dump(data, output)
+
+
 @cli.command(help='sketch a json file for storing data')
 def sketch():
-    data = {}
-    data['subscriptions'] = {}
-    with open(settings.SUBSCRIPTIONS_FILE, 'w') as output:
-        json.dump(data, output)
+    sketch_meta('subscriptions')
 
 
 @cli.command(help='new a subscription')
