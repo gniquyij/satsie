@@ -6,6 +6,10 @@ a tool to check for your subscription updates.
 
 satsie is the pronounciation of '飒(sa) 尖(tsie)' in Shanghainese, which means sharp.
 
+## how satsie works
+
+compare the same source between different timestamps.
+
 ## why not other RSS tools in the market
 
 - hard to find the RSS feeds (complicated to make one)
@@ -27,11 +31,13 @@ $ python utils.py sketch
 $ python utils.py new --url <subscription>   # to add a new subscription
 $ python utils.py arenew --url <subscription>   # to check if any updates on a specific subscription
 $ python utils.py renew   # to check if any updates on all the subscriptions
+$ python utils.py remove --url <subscription>   # to unsubscribe from a url
 ```
 
 ## TODO
 
 - add log
+- flag the subscriptions. e.g. type, author, etc.
 
 ## author
 
