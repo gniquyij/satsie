@@ -13,7 +13,7 @@ class Subscription:
     def get(self, url, ut):
         try:
             return requests.get(url).text
-        except Exception as e:
+        except:
             if not ut:
                 print ('INVALID URL! => %s' % self.url)
                 raise SystemExit
@@ -52,3 +52,4 @@ class Subscription:
                     print ('nothing changed => %s' % self.url)
         else:
             print ('a new face. new it if required.')
+

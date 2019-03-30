@@ -12,8 +12,12 @@ def cli():
 
 
 def load_db(db):
-    with open(db) as input:
-        return json.load(input)
+    try:
+        with open(db) as input:
+            return json.load(input)
+    except:
+        print ('INVALID DATABASE!')
+        raise SystemExit
 
 
 def dump_db(db, data):
