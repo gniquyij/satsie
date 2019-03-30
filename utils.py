@@ -59,5 +59,20 @@ def renew(db=settings.SUBSCRIPTIONS_FILE):
         s.update()
 
 
+@cli.command(help='list the subscriptions')
+def list(db=settings.SUBSCRIPTIONS_FILE):
+    data = load_db(db)
+    urls = data['subscriptions'].keys()
+    for url in urls:
+        print (url)
+
+
+@cli.command(help='unsubscribe from a url')
+@click.option('--url', help='the subscription to remove')
+def remove(url):
+    s = subscription.Subscription(url)
+    s.remove()
+
+
 if __name__ == '__main__':
     cli()

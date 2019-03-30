@@ -53,3 +53,11 @@ class Subscription:
         else:
             print ('a new face. new it if required.')
 
+    def remove(self, db=settings.SUBSCRIPTIONS_FILE):
+        data = utils.load_db(db)
+        if self.url in data['subscriptions']:
+            data['subscriptions'].pop(self.url)
+            utils.dump_db(db, data)
+            print ('removed => %s' % self.url)
+        else:
+            print ('nothing has been removed')
