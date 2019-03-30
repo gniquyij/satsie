@@ -60,7 +60,7 @@ def renew(db=settings.SUBSCRIPTIONS_FILE):
 
 
 @cli.command(help='list the subscriptions')
-def list(db=settings.SUBSCRIPTIONS_FILE):
+def ls(db=settings.SUBSCRIPTIONS_FILE):
     data = load_db(db)
     urls = data['subscriptions'].keys()
     for url in urls:
