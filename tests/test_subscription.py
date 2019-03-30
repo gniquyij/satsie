@@ -5,23 +5,21 @@ sys.path.append('..')
 from subscription import Subscription
 import settings
 import utils
-import json
 
 
-def setup_funcs(url):
+def setup_funcs(url, func_name):
     s = Subscription(url)
-    funcs = {
-        'initialize': s.initialize(settings.SUBSCRIPTIONS_FILE_FOR_TEST, ut=True),
-        'update': s.update(settings.SUBSCRIPTIONS_FILE_FOR_TEST, ut=True)
-    }
-    return funcs
+    if func_name == 'initialize':
+        return s.initialize(settings.SUBSCRIPTIONS_FILE_FOR_TEST, ut=True)
+    return s.update(settings.SUBSCRIPTIONS_FILE_FOR_TEST, ut=True)
 
 
 def setup(url, func_name):
     utils.sketch_meta('subscriptions', settings.SUBSCRIPTIONS_FILE_FOR_TEST)
-    setup_funcs(url)[func_name]
-    with open('subscriptions.json') as input:
-        return json.load(input)
+    if func_name == 'update':
+        setup_funcs('https://en.wikipedia.org/', 'initialize')
+    setup_funcs(url, func_name)
+    return utils.load_db('subscriptions.json')
 
 
 class TestInitialize:
@@ -41,11 +39,11 @@ class TestInitialize:
         assert url in data['subscriptions']
 
 
-class TestUpdate():
+class TestUpdate:
     def test_update_url_available_and_nonexistent(self):
         url = 'http://www.jma.go.jp/en/gms/'
         data = setup(url, 'update')
-        assert url in data['subscriptions']
+        assert url not in data['subscriptions']
 
     def test_update_url_unavailable(self):
         url = 'www.jma.go.jp/en/gms/'
@@ -53,6 +51,6 @@ class TestUpdate():
         assert url not in data['subscriptions']
 
     def test_update_url_existent(self):
-        url = 'http://www.jma.go.jp/en/gms/'
+        url = 'https://en.wikipedia.org/'
         data = setup(url, 'update')
         assert url in data['subscriptions']

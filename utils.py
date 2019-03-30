@@ -11,11 +11,20 @@ def cli():
     pass
 
 
+def load_db(db):
+    with open(db) as input:
+        return json.load(input)
+
+
+def dump_db(db, data):
+    with open(db, 'w') as output:
+        json.dump(data, output)
+
+
 def sketch_meta(name, db=settings.SUBSCRIPTIONS_FILE):
     data = {}
     data[name] = {}
-    with open(db, 'w') as output:
-        json.dump(data, output)
+    dump_db(db, data)
 
 
 @cli.command(help='sketch a json file for storing data')
@@ -38,9 +47,8 @@ def arenew(url):
 
 
 @cli.command(help='check if any updates on all the subscriptions')
-def renew():
-    with open(settings.SUBSCRIPTIONS_FILE) as input:
-        data = json.load(input)
+def renew(db=settings.SUBSCRIPTIONS_FILE):
+    data = load_db(db)
     urls = data['subscriptions'].keys()
     for url in urls:
         s = subscription.Subscription(url)

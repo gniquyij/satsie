@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import datetime
-import json
 import requests
 import settings
+import utils
 
 
 class Subscription:
@@ -14,27 +14,28 @@ class Subscription:
         try:
             return requests.get(url).text
         except Exception as e:
-            if ut is False:
-                print ('INVALID URL!')
+            if not ut:
+                print ('INVALID URL! => %s' % self.url)
                 raise SystemExit
 
     def initialize(self, db=settings.SUBSCRIPTIONS_FILE, ut=False):
-        self.content = self.get(self.url, ut)
-        if self.content:
-            self.created_at = datetime.datetime.now()
-            with open(db) as input:
-                data = json.load(input)
-            data['subscriptions'][self.url] = {
-                'created_at': str(self.created_at),
-                'content': self.content,
-            }
-            with open(db, 'w') as output:
-                json.dump(data, output)
-            print ('a new face => %s' % (self.url))
+        data = utils.load_db(db)
+        if self.url not in data['subscriptions']:
+            self.content = self.get(self.url, ut)
+            if self.content:
+                self.created_at = datetime.datetime.now()
+                data['subscriptions'][self.url] = {
+                    'created_at': str(self.created_at),
+                    'content': self.content,
+                }
+                utils.dump_db(db, data)
+                print ('a new face\'s in => %s' % self.url)
+        else:
+            print ('subscribed. checking for updates...')
+            self.update()
 
     def update(self, db=settings.SUBSCRIPTIONS_FILE, ut=False):
-        with open(db) as input:
-            data = json.load(input)
+        data = utils.load_db(db)
         if self.url in data['subscriptions']:
             content_new = self.get(self.url, ut)
             if content_new:
@@ -45,10 +46,9 @@ class Subscription:
                         'content': self.content,
                         'updated_at': str(self.updated_at),
                     }
-                    with open(db, 'w') as output:
-                        json.dump(data, output)
-                    print ('CHANGES! => %s' % (self.url))
+                    utils.dump_db(db, data)
+                    print ('CHANGES! => %s' % self.url)
                 else:
-                    print ('nothing changed => %s' % (self.url))
-            else:
-                self.initialize()
+                    print ('nothing changed => %s' % self.url)
+        else:
+            print ('a new face. new it if required.')
