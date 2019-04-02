@@ -26,6 +26,7 @@ class Subscription:
                 self.created_at = datetime.datetime.now()
                 data['subscriptions'][self.url] = {
                     'created_at': str(self.created_at),
+                    'updated_at': None,
                     'content': self.content,
                 }
                 utils.dump_db(db, data)
