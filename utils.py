@@ -70,20 +70,22 @@ def ls(db=settings.SUBSCRIPTIONS_FILE):
 
 
 @cli.command(help='dump the subscriptions and their info')
-def dump(db=settings.SUBSCRIPTIONS_FILE):
+@click.option('--options', type=click.Choice(['created_at', 'updated_at']), multiple=True)
+def dump(options, db=settings.SUBSCRIPTIONS_FILE):
     data = load_db(db)
+    headers = ['url']
+    for option in options:
+        headers.append(option)
     now = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M')
     with open('subscriptions_%s.csv' % now, 'wb') as output:
-        headers = ['url', 'created_at', 'updated_at']
         writer = csv.DictWriter(output, fieldnames=headers)
         writer.writeheader()
         urls = data['subscriptions'].keys()
         for url in urls:
-            writer.writerow({
-                'url': url,
-                'created_at': data['subscriptions'][url]['created_at'],
-                'updated_at': data['subscriptions'][url]['updated_at'],
-            })
+            fields = {'url': url}
+            for option in options:
+                fields[option] = data['subscriptions'][url][option]
+            writer.writerow(fields)
 
 
 @cli.command(help='unsubscribe from a url')
