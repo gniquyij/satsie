@@ -32,6 +32,7 @@ $ python utils.py new --url <subscription>   # to add a new subscription
 $ python utils.py arenew --url <subscription>   # to check if any updates on a specific subscription
 $ python utils.py renew   # to check if any updates on all the subscriptions
 $ python utils.py remove --url <subscription>   # to unsubscribe from a url
+$ python utils.py dump   # to dump the subscription brief
 ```
 
 ## TODO

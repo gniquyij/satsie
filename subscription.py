@@ -26,6 +26,7 @@ class Subscription:
                 self.created_at = datetime.datetime.now()
                 data['subscriptions'][self.url] = {
                     'created_at': str(self.created_at),
+                    'updated_at': None,
                     'content': self.content,
                 }
                 utils.dump_db(db, data)
@@ -42,10 +43,8 @@ class Subscription:
                 if content_new != data['subscriptions'][self.url]['content']:
                     self.content = content_new
                     self.updated_at = datetime.datetime.now()
-                    data['subscriptions'][self.url] = {
-                        'content': self.content,
-                        'updated_at': str(self.updated_at),
-                    }
+                    data['subscriptions'][self.url]['updated_at'] = str(self.updated_at)
+                    data['subscriptions'][self.url]['content'] = self.content
                     utils.dump_db(db, data)
                     print ('CHANGES! => %s' % self.url)
                 else:

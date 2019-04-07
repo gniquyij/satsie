@@ -4,6 +4,8 @@ import settings
 import json
 import subscription
 import click
+import csv
+import datetime
 
 
 @click.group()
@@ -65,6 +67,25 @@ def ls(db=settings.SUBSCRIPTIONS_FILE):
     urls = data['subscriptions'].keys()
     for url in urls:
         print (url)
+
+
+@cli.command(help='dump the subscriptions and their info')
+@click.option('--options', type=click.Choice(['created_at', 'updated_at']), multiple=True)
+def dump(options, db=settings.SUBSCRIPTIONS_FILE):
+    data = load_db(db)
+    headers = ['url']
+    for option in options:
+        headers.append(option)
+    now = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M')
+    with open('subscriptions_%s.csv' % now, 'wb') as output:
+        writer = csv.DictWriter(output, fieldnames=headers)
+        writer.writeheader()
+        urls = data['subscriptions'].keys()
+        for url in urls:
+            fields = {'url': url}
+            for option in options:
+                fields[option] = data['subscriptions'][url][option]
+            writer.writerow(fields)
 
 
 @cli.command(help='unsubscribe from a url')
