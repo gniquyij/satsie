@@ -95,5 +95,24 @@ def remove(url):
     s.remove()
 
 
+@cli.command(help='search')
+@click.option('--keyword', help='keyword')
+@click.option('--option', type=click.Choice(['url', 'created_at', 'updated_at']))
+def search(keyword, option, db=settings.SUBSCRIPTIONS_FILE):
+    data = load_db(db)
+    urls = data['subscriptions'].keys()
+    findings = []
+    if option == 'url':
+        if keyword in urls:
+            print (data['subscriptions'][keyword])
+            return
+        print (findings)
+        return
+    for url in urls:
+        if str(keyword) in str(data['subscriptions'][url][option]):
+            findings.append(data['subscriptions'][url])
+    print (findings)
+
+
 if __name__ == '__main__':
     cli()
