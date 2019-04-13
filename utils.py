@@ -7,6 +7,7 @@ import click
 import csv
 import datetime
 import logging
+import os
 
 
 logger = logging.getLogger('satsie.utils')
@@ -44,6 +45,9 @@ def cli():
 
 @cli.command(help='sketch a json file for storing data')
 def sketch():
+    if os.path.isfile('subscriptions.json'):
+        if not click.confirm('do you want to delete the existed subscription database then new one?', default=False):
+            return
     sketch_meta('subscriptions')
     logger.info('sketched a json file for storing data.')
 
