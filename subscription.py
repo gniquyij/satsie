@@ -4,6 +4,10 @@ import datetime
 import requests
 import settings
 import utils
+import logging
+
+
+logger = logging.getLogger('satsie.subscription')
 
 
 class Subscription:
@@ -30,6 +34,7 @@ class Subscription:
                     'content': self.content,
                 }
                 utils.dump_db(db, data)
+                logger.info('subscribed => %s.' % self.url)
                 print ('a new face\'s in => %s' % self.url)
         else:
             print ('subscribed. checking for updates...')
@@ -46,6 +51,7 @@ class Subscription:
                     data['subscriptions'][self.url]['updated_at'] = str(self.updated_at)
                     data['subscriptions'][self.url]['content'] = self.content
                     utils.dump_db(db, data)
+                    logger.info('renewed => %s.' % self.url)
                     print ('CHANGES! => %s' % self.url)
                 else:
                     print ('nothing changed => %s' % self.url)
@@ -57,6 +63,7 @@ class Subscription:
         if self.url in data['subscriptions']:
             data['subscriptions'].pop(self.url)
             utils.dump_db(db, data)
-            print ('removed => %s' % self.url)
+            logger.info('unsubscribed => %s.' % self.url)
+            print ('unsubscribed => %s' % self.url)
         else:
             print ('nothing has been removed')

@@ -6,6 +6,10 @@ import subscription
 import click
 import csv
 import datetime
+import logging
+
+
+logger = logging.getLogger('satsie.utils')
 
 
 @click.group()
@@ -36,6 +40,7 @@ def sketch_meta(name, db=settings.SUBSCRIPTIONS_FILE):
 @cli.command(help='sketch a json file for storing data')
 def sketch():
     sketch_meta('subscriptions')
+    logger.info('sketched a json file for storing data. ')
 
 
 @cli.command(help='new a subscription')
