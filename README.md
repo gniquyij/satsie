@@ -21,7 +21,9 @@ compare the same source between different timestamps.
 ### setup
 
 ```
-$ pip install -r requirements.txt
+$ git clone https://github.com/vjyq/satsie.git
+$ cd satsie
+$ pip install -r requirements.txt               # a virtualenv is recommended
 $ python utils.py sketch
 ```
 
