@@ -39,7 +39,7 @@ $ python utils.py dump                          # to dump the subscription brief
 
 ## TODO
 
-- ![PyPI](https://img.shields.io/pypi/v/satsie.svg)
+- https://pypi.org/project/satsie/0.1.1/
 - flag the subscriptions. e.g. type, author, etc.
 - timestamp to utc
 
