@@ -39,6 +39,7 @@ $ python utils.py dump                          # to dump the subscription brief
 
 ## TODO
 
+- ![PyPI](https://img.shields.io/pypi/v/satsie.svg)
 - flag the subscriptions. e.g. type, author, etc.
 - timestamp to utc
 
