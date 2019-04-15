@@ -9,7 +9,7 @@ with open('requirements.txt', 'r') as requirements_file:
 
 setuptools.setup(
     name='satsie',
-    version='0.1.1',
+    version='1.0.0',
     author='vjyq',
     author_email='yuqing.ji@outlook.com',
     description='a tool to check for your subscription updates.',
@@ -26,9 +26,9 @@ setuptools.setup(
         'Programming Language :: Python :: 2.7',
     ],
     test_suite='./satsie/tests',
-    # entry_points={
-    #     'console_scripts': [
-    #         'satsie=satsie.utils:cli',
-    #     ],
-    # },
+    entry_points={
+        'console_scripts': [
+            'satsie=satsie.utils:cli',
+        ],
+    },
 )

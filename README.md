@@ -21,26 +21,32 @@ compare the same source between different timestamps.
 ### setup
 
 ```
-$ git clone https://github.com/vjyq/satsie.git
-$ cd satsie
-$ pip install -r requirements.txt               # a virtualenv is recommended
-$ cd satsie
-$ python utils.py sketch
+$ pip install satsie            # a virtualenv is recommended
+$ satsie sketch                 # generate a json file in your current directory for storing data
 ```
 
 ### enjoy
 
 ```
-$ python utils.py new --url <subscription>      # to add a new subscription
-$ python utils.py arenew --url <subscription>   # to check if any updates on a specific subscription
-$ python utils.py renew                         # to check if any updates on all the subscriptions
-$ python utils.py remove --url <subscription>   # to unsubscribe from a url
-$ python utils.py dump                          # to dump the subscription brief
+$ satsie
+
+Usage: satsie [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  arenew  check if any updates on a specific subscription
+  dump    dump the subscriptions and their info
+  ls      list the subscriptions
+  new     new a subscription
+  remove  unsubscribe from a url
+  renew   check if any updates on all the subscriptions
+  search  keyword search
 ```
 
 ## TODO
 
-- https://pypi.org/project/satsie/0.1.1/
 - flag the subscriptions. e.g. type, author, etc.
 - timestamp to utc
 
