@@ -18,8 +18,6 @@ compare the same source between different timestamps.
 
 ## how to use
 
-
-
 ### setup
 
 ```
