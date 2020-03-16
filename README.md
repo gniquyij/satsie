@@ -1,31 +1,31 @@
 # satsie
 
-## what is satsie
+## What is satsie
 
-a tool to check for your subscription updates.
+A tool for checking for the subscription updates.
 
 satsie is the pronunciation of '飒(sa) 尖(tsie)' in Shanghainese, which means sharp.
 
-## how satsie works
+## How satsie works
 
-compare the same source between different timestamps.
+Compare the same source between different timestamps.
 
-## why not other RSS tools in the market
+## Why not other RSS tools in the market
 
 - hard to find the RSS feeds (complicated to make one)
 - too many useless features like recommendation...i just need someone to tell me if any updates on my subscriptions
 - privacy
 
-## how to use
+## How to use
 
-### setup
+### Setup
 
 ```
-$ pip install satsie            # a virtualenv is recommended
-$ satsie sketch                 # generate a json file in your current directory for storing data
+$ pip install satsie            # A virtualenv is recommended
+$ satsie sketch                 # To generate a json file in your current directory for storing data
 ```
 
-### enjoy
+### Enjoy
 
 ```
 $ satsie
@@ -50,6 +50,6 @@ Commands:
 - flag the subscriptions. e.g. type, author, etc.
 - timestamp to utc
 
-## author
+## Author
 
-<mailto:yuqing.ji@outlook.com>
+<yuqing.ji@outlook.com>
