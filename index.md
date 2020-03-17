@@ -7,8 +7,8 @@ them. I use tool to bunch information and for me, there are 2 requirements for t
   always required for specific contents on it, causing unnecessary
   costs on account management.
   
-Almost every RSS reader I tried can do the 2nd thing but it
-  surprised me that I found none of them could meet my 1st requirement
+Almost every RSS reader I tried can do the 1st thing but it
+  surprised me that I found none of them could meet my 2nd requirement
   perfectly. So I wrote one: https://github.com/vjyq/satsie
   
 
