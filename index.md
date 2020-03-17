@@ -9,10 +9,10 @@ them. I use tool to bunch information and for me, there are 2 requirements for t
   
 Almost every RSS reader I tried can do the 1st thing but it
   surprised me that I found none of them could meet my 2nd requirement
-  perfectly (to some extent). So I created [satise](https://github.com/vjyq/satsie)
+  perfectly (to some extent). So I created [satise](https://github.com/vjyq/satsie).
 
 In simple, satsie would just do 1 thing once setup: compare a source between 2
-timestamps, at the HTML level. And that's why it can catch the updates
+timestamps, at the HTML level. And that's why it can catch updates
 unless there's a mask on the site.
 
 You could find how-to [here](https://github.com/vjyq/satsie)
