@@ -9,31 +9,34 @@ them. I use tool to bunch information and for me, there are 2 requirements for t
   
 Almost every RSS reader I tried can do the 1st thing but it
   surprised me that I found none of them could meet my 2nd requirement
-  perfectly (to some extent). So I created [satise](https://github.com/vjyq/satsie).
+  perfectly (to some extent). So I created [satsie](https://github.com/vjyq/satsie).
 
 In simple, satsie would just do 1 thing once setup: compare a source between 2
 timestamps, at the HTML level. And that's why it can catch updates
 unless there's a mask on the site.
 
-You could find how-to [here](https://github.com/vjyq/satsie)
-and apart from it, I set up a cronjob to get email notification once
-there's an update. What I did:
+On top of a simple installation, I set up a cronjob to get email notification once
+there's an update. Here's my OS and what I did:
 
-1. Create an email trigger
-```
-TBD
-```
-2. Set the trigger as a cronjob
-```
-TBD
-```
-
-And here's my OS:
+My OS:
 ```
 $ sw_vers
 ProductName:	Mac OS X
 ProductVersion:	10.14.4
 BuildVersion:	18E226
 ```
+
+What I did:
+1. Create an email trigger
+```
+TBD
+```
+2. Set the trigger as a cronjob. Mine is every Friday at 8 PM.
+```
+$ crontab -e
+0 20 * * 5 jghjj
+```
+
+
 
 
