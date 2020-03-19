@@ -27,16 +27,9 @@ BuildVersion:	18E226
 ```
 
 What I did:
-1. Create an email trigger
+1. Created a mail trigger called `weekly.sh` in the dir `satsie/bin`
+2. Set the trigger as a cronjob. Mine is every Friday at 8 PM:
 ```
-TBD
+satsie $ crontab -e
+* 20 * * 5 /bin/bash <path-to-satsie>/satsie/bin/weekly.sh
 ```
-2. Set the trigger as a cronjob. Mine is every Friday at 8 PM.
-```
-$ crontab -e
-0 20 * * 5 jghjj
-```
-
-
-
-
