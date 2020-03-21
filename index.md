@@ -27,7 +27,7 @@ BuildVersion:	18E226
 ```
 
 What I did:
-1. Created a mail trigger called `weekly.sh` in the dir `satsie/bin`: https://github.com/vjyq/satsie/blob/master/bin/weekly.sh
+1. Created a mail trigger called [weekly.sh](https://github.com/vjyq/satsie/blob/master/bin/weekly.sh) in the dir `satsie/bin`
 2. Set the trigger as a cronjob. Mine is every Friday at 8 PM:
 ```
 satsie $ crontab -e
