@@ -1,7 +1,2 @@
-#!/bin/bash
-set -e
-here="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
- . $here/activate.sh
-
-cd $here/../satsie
-echo $(satsie renew) | mail -s "satsie weekly $(date +%F)" yuqing.ji@outlook.com
+cd /Users/yuqing.ji/satsie/satsie
+echo $(/Users/yuqing.ji/.pyenv/versions/2.7.10/envs/satsie_prod/bin/satsie renew) | mail -s "satsie weekly $(date +%F)" yuqing.ji@outlook.com
