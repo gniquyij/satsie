@@ -28,18 +28,11 @@ BuildVersion:	18E226
 
 What I did:
 1. Created a mail trigger called [weekly.sh](https://github.com/vjyq/satsie/blob/master/bin/weekly.sh) in the dir `satsie/bin`
-2. Set the trigger as a cronjob. Mine is every Friday at 8 PM:
+2. Set the trigger as a cronjob. Mine is every Saturday at 8 PM:
 ```
 satsie $ crontab -e
-0 20 * * 5 . /Users/yuqing.ji/satsie/bin/weekly.sh
+0 20 * * 6 . /Users/yuqing.ji/satsie/bin/weekly.sh
 ```
 
 And the mail in the mailbox:
-```
-Subject: satsie weekly 2020-03-20
-Message-Id: 
-Date: Fri, 20 Mar 2020 20:00:05 +0800 (CST)
-From: yuqing.ji@yuqingjis-MacBook-Pro.local (yuqing.ji)
-
-nothing changed => https://vjyq.github.io/vjyq.github.io/en/
-```
+![satsie_weekly-2020-03-21](./satsie_weekly_2020-03-21.png)
