@@ -36,3 +36,7 @@ satsie $ crontab -e
 
 And the mail in the mailbox:
 ![satsie_weekly-2020-03-21](./satsie_weekly_2020-03-21.png)
+
+<br>
+<div style="border-top:1px solid #e1e4e8;padding-top:0.3em">@2018-2020 YUQING JI</div>
+<div><a href="https://vjyq.github.io/">Blog</a> - <a href="mailto:yuqing.ji@outlook.com">Email</a> - <a href="https://github.com/vjyq">Github</a></div>
